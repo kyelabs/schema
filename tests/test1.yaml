@@ -1,4 +1,4 @@
-$schema: https://kyelang.org/schema/kye.json
+$schema: https://schema.kyelang.org/schema.json
 models:
   User:
     indexes:

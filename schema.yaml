@@ -1,5 +1,5 @@
 $schema: http://json-schema.org/draft-07/schema#
-$id: https://kyelang.org/schema/schema.json
+$id: https://schema.kyelang.org/schema.json
 title: Compiled Kye schema
 description: The schema for compiled Kye models
 type: object
