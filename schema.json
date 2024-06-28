@@ -141,30 +141,6 @@
       "type": "array",
       "items": {
         "type": "object",
-        "propertyNames": {
-          "enum": [
-            "col",
-            "str",
-            "is_null",
-            "not_null",
-            "not",
-            "neg",
-            "ne",
-            "eq",
-            "or",
-            "and",
-            "lt",
-            "gt",
-            "lte",
-            "add",
-            "sub",
-            "mul",
-            "div",
-            "mod",
-            "concat",
-            "count"
-          ]
-        },
         "additionalProperties": {
           "oneOf": [
             {
