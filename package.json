@@ -6,7 +6,7 @@
     "test": "test"
   },
   "scripts": {
-    "build": "cat schema.yaml | yq > dist/schema.json",
+    "build": "cat schema.yaml | yq > schema.json",
     "test": "ajv -s schema.yaml -d tests/*.yaml"
   },
   "keywords": [],
