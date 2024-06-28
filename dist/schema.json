@@ -1,0 +1,205 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://kyelang.org/schema/schema.json",
+  "title": "Compiled Kye schema",
+  "description": "The schema for compiled Kye models",
+  "type": "object",
+  "required": [
+    "models"
+  ],
+  "properties": {
+    "models": {
+      "description": "The models in the schema",
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/Model"
+      }
+    },
+    "types": {
+      "description": "The types in the schema",
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/Type"
+      }
+    }
+  },
+  "$defs": {
+    "Model": {
+      "description": "A model in the schema",
+      "type": "object",
+      "required": [
+        "indexes",
+        "edges"
+      ],
+      "properties": {
+        "indexes": {
+          "description": "The indexes of the model",
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "edges": {
+          "description": "The edges of the model",
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/Edge"
+          }
+        },
+        "assertions": {
+          "description": "The assertions of the model",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Assertion"
+          }
+        }
+      }
+    },
+    "Type": {
+      "description": "A type in the schema",
+      "type": "object",
+      "properties": {
+        "parent": {
+          "description": "The parent type",
+          "type": "string"
+        },
+        "conditions": {
+          "description": "The conditions for the type",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Expr"
+          }
+        },
+        "edges": {
+          "description": "The edges of the type",
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/Edge"
+          }
+        },
+        "assertions": {
+          "description": "The assertions of the type",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Assertion"
+          }
+        }
+      }
+    },
+    "Edge": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "description": "The name of a type",
+          "type": "string",
+          "examples": [
+            "Number",
+            "String",
+            "Boolean"
+          ]
+        },
+        "many": {
+          "description": "Whether the edge allows many values",
+          "type": "boolean",
+          "default": false
+        },
+        "null": {
+          "description": "Whether the edge allows null values",
+          "type": "boolean",
+          "default": false
+        },
+        "expr": {
+          "description": "The expression for a computed edge",
+          "$ref": "#/$defs/Expr"
+        }
+      }
+    },
+    "Assertion": {
+      "type": "object",
+      "required": [
+        "msg",
+        "expr"
+      ],
+      "properties": {
+        "msg": {
+          "description": "The message of the assertion",
+          "type": "string"
+        },
+        "expr": {
+          "description": "The expression of the assertion",
+          "$ref": "#/$defs/Expr"
+        }
+      }
+    },
+    "Expr": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "propertyNames": {
+          "enum": [
+            "col",
+            "str",
+            "is_null",
+            "not_null",
+            "not",
+            "neg",
+            "ne",
+            "eq",
+            "or",
+            "and",
+            "lt",
+            "gt",
+            "lte",
+            "add",
+            "sub",
+            "mul",
+            "div",
+            "mod",
+            "concat",
+            "count"
+          ]
+        },
+        "additionalProperties": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "maxProperties": 1,
+        "minProperties": 1
+      }
+    }
+  }
+}

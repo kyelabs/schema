@@ -1,7 +1,8 @@
 $schema: https://kyelang.org/schema/kye.json
 models:
   User:
-    index: id
+    indexes:
+      - - id
     edges:
       id:
         type: Number
