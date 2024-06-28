@@ -1,0 +1,61 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: https://kyelang.org/schema/schema.json
+title: Compiled Kye schema
+description: The schema for compiled Kye models
+type: object
+required: [ models ]
+properties:
+  models:
+    description: The models in the schema
+    type: object
+    additionalProperties:
+      $ref: "#/$defs/Model"
+$defs:
+  Model:
+    description: A model in the schema
+    type: object
+    properties:
+      edges:
+        description: The edges of the model
+        type: object
+        additionalProperties:
+          $ref: "#/$defs/Edge"
+  Edge:
+    type: object
+    required: [ type ]
+    properties:
+      type:
+        description: The name of a type
+        type: string
+        examples: [ Number, String, Boolean ]
+      many:
+        description: Whether the edge allows many values
+        type: boolean
+        default: false
+      null:
+        description: Whether the edge allows null values
+        type: boolean
+        default: false
+      expr:
+        description: The expression for a computed edge
+        $ref: "#/$defs/Expr"
+  Expr:
+    type: array
+    items:
+      type: object
+      propertyNames:
+        enum: [col, str, is_null, not_null, not, neg, ne, eq, or, and, lt, gt, lte, add, sub, mul, div, mod, concat, count]
+      additionalProperties:
+        oneOf:
+          - type: 'null'
+          - type: string
+          - type: boolean
+          - type: number
+          - type: array
+            items:
+              oneOf:
+                - type: string
+                - type: boolean
+                - type: number
+      maxProperties: 1
+      minProperties: 1

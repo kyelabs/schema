@@ -1,0 +1,16 @@
+{
+  "name": "schema",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "build": "cat schema.yaml | yq > dist/schema.json",
+    "test": "ajv -s schema.yaml -d tests/*.yaml"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

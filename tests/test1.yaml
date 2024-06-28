@@ -1,0 +1,27 @@
+$schema: https://kyelang.org/schema/kye.json
+models:
+  User:
+    index: id
+    edges:
+      id:
+        type: Number
+        many: True
+      name:
+        type: String
+      is_admin: 
+        type: Boolean
+      says:
+        type: String
+        expr: 
+          - col: name
+          - concat: " says hi"
+    assertions:
+      - msg: "Name cannot be admin"
+        expr:
+          - col: name
+          - ne: admin
+types:
+  Admin:
+    parent: User
+    conditions:
+      - - col: is_admin
