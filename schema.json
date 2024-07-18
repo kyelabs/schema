@@ -31,6 +31,7 @@
         "indexes",
         "edges"
       ],
+      "additionalProperties": false,
       "properties": {
         "indexes": {
           "description": "The indexes of the model",
@@ -61,6 +62,7 @@
     "Type": {
       "description": "A type in the schema",
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "parent": {
           "description": "The parent type",
@@ -94,6 +96,7 @@
       "required": [
         "type"
       ],
+      "additionalProperties": false,
       "properties": {
         "type": {
           "description": "The name of a type",
@@ -103,6 +106,10 @@
             "String",
             "Boolean"
           ]
+        },
+        "title": {
+          "description": "The title of the edge",
+          "type": "string"
         },
         "many": {
           "description": "Whether the edge allows many values",
@@ -117,6 +124,10 @@
         "expr": {
           "description": "The expression for a computed edge",
           "$ref": "#/$defs/Expr"
+        },
+        "loc": {
+          "description": "The location of the edge in the source code",
+          "type": "string"
         }
       }
     },
@@ -126,6 +137,7 @@
         "msg",
         "expr"
       ],
+      "additionalProperties": false,
       "properties": {
         "msg": {
           "description": "The message of the assertion",
@@ -134,6 +146,10 @@
         "expr": {
           "description": "The expression of the assertion",
           "$ref": "#/$defs/Expr"
+        },
+        "loc": {
+          "description": "The location of the edge in the source code",
+          "type": "string"
         }
       }
     },

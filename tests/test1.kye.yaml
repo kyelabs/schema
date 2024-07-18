@@ -6,8 +6,10 @@ models:
       id:
         type: Number
         many: True
+        loc: '1:3'
       name:
         type: String
+        title: User's Name
       is_admin: 
         type: Boolean
       says:
@@ -20,6 +22,7 @@ models:
         expr:
           - col: name
           - ne: admin
+        loc: '4:3'
 types:
   Admin:
     parent: User
