@@ -39,6 +39,9 @@ $defs:
         type: array
         items:
           $ref: "#/$defs/Assertion"
+      loc:
+        description: The location of the model in the source code
+        type: string
   Type:
     description: A type in the schema
     type: object
@@ -100,7 +103,7 @@ $defs:
         description: The expression of the assertion
         $ref: "#/$defs/Expr"
       loc:
-        description: The location of the edge in the source code
+        description: The location of the assertion in the source code
         type: string
   Expr:
     type: array

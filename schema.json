@@ -56,6 +56,10 @@
           "items": {
             "$ref": "#/$defs/Assertion"
           }
+        },
+        "loc": {
+          "description": "The location of the model in the source code",
+          "type": "string"
         }
       }
     },
@@ -148,7 +152,7 @@
           "$ref": "#/$defs/Expr"
         },
         "loc": {
-          "description": "The location of the edge in the source code",
+          "description": "The location of the assertion in the source code",
           "type": "string"
         }
       }
