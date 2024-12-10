@@ -16,19 +16,45 @@ properties:
     additionalProperties:
       $ref: "#/$defs/Type"
 $defs:
+  AbstractIndexes:
+    description: The indexes of a model
+    oneOf:
+      - type: object
+        required: [ indexes ]
+        properties:
+          indexes:
+            type: array
+            items:
+              oneOf:
+                - type: array
+                  minItems: 1
+                  items:
+                    type: string
+                - type: string
+          index:
+            not: {}
+      - type: object
+        required: [ index ]
+        properties:
+          index:
+            oneOf:
+              - type: array
+                minItems: 1
+                items:
+                  type: string
+              - type: string
+          indexes:
+            not: {}
   Model:
     description: A model in the schema
     type: object
-    required: [ indexes, edges ]
+    allOf:
+      - $ref: "#/$defs/AbstractIndexes"
+    required: [ edges ]
     additionalProperties: false
     properties:
-      indexes:
-        description: The indexes of the model
-        type: array
-        items:
-          type: array
-          items:
-            type: string
+      indexes: {}
+      index: {}
       edges:
         description: The edges of the model
         type: object

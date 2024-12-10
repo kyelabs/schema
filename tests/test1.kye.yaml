@@ -1,7 +1,6 @@
 models:
   User:
-    indexes:
-      - - id
+    index: id
     edges:
       id:
         type: Number
