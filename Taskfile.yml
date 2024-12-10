@@ -1,0 +1,10 @@
+version: '3'
+
+tasks:
+  build:
+    cmds:
+      - cat schema.yaml | yq -o json > schema.json
+  test:
+    deps: [ build ]
+    cmds:
+      - ajv -s schema.yaml -d tests/*.yaml

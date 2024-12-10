@@ -65,6 +65,9 @@ $defs:
         type: array
         items:
           $ref: "#/$defs/Assertion"
+      loc:
+        description: The location of the type in the source code
+        type: string
   Edge:
     type: object
     required: [ type ]
@@ -81,7 +84,7 @@ $defs:
         description: Whether the edge allows many values
         type: boolean
         default: false
-      null:
+      none:
         description: Whether the edge allows null values
         type: boolean
         default: false

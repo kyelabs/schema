@@ -92,6 +92,10 @@
           "items": {
             "$ref": "#/$defs/Assertion"
           }
+        },
+        "loc": {
+          "description": "The location of the type in the source code",
+          "type": "string"
         }
       }
     },
@@ -120,7 +124,7 @@
           "type": "boolean",
           "default": false
         },
-        "null": {
+        "none": {
           "description": "Whether the edge allows null values",
           "type": "boolean",
           "default": false
