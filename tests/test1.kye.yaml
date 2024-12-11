@@ -12,6 +12,7 @@ models:
         none: true
       is_admin: 
         type: Boolean
+        format: yes|no
       says:
         type: String
         expr: 

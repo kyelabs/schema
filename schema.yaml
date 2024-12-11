@@ -102,7 +102,10 @@ $defs:
       type:
         description: The name of a type
         type: string
-        examples: [ Number, String, Boolean ]
+        examples: [ String ]
+      format:
+        description: The format of the type
+        type: string
       title:
         description: The title of the edge
         type: string

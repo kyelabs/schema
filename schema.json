@@ -164,10 +164,12 @@
           "description": "The name of a type",
           "type": "string",
           "examples": [
-            "Number",
-            "String",
-            "Boolean"
+            "String"
           ]
+        },
+        "format": {
+          "description": "The format of the type",
+          "type": "string"
         },
         "title": {
           "description": "The title of the edge",
