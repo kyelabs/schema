@@ -12,7 +12,6 @@ models:
         none: true
       is_admin: 
         type: Boolean
-        format: yes|no
       says:
         type: String
         expr: 
@@ -27,5 +26,6 @@ models:
 types:
   Admin:
     parent: User
+    format: id
     conditions:
       - - col: is_admin

@@ -76,6 +76,9 @@ $defs:
       parent:
         description: The parent type
         type: string
+      format:
+        description: The format of the type
+        type: string
       conditions:
         description: The conditions for the type
         type: array
@@ -103,9 +106,6 @@ $defs:
         description: The name of a type
         type: string
         examples: [ String ]
-      format:
-        description: The format of the type
-        type: string
       title:
         description: The title of the edge
         type: string
